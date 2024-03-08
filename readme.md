@@ -1,82 +1,58 @@
- **# Gemini Pro API**
+# Gemini API wuth Streamlit
 
-**# Google Gemini API using Streamlit Application
+## Overview
 
-**An overview of the google gemini aps using the popular light weight web module Streamlit.**
+This Streamlit app harnesses the power of Google's Gemini API to generate creative text formats, including poems, code, scripts, musical pieces, email, letters, etc., based on your prompts. It offers two primary features:
 
-**# Getting Started**
+- **Generate Text:** Enter a prompt, and the app will create a text continuation using Gemini's text-generation capabilities.
+- **Generate Image (Coming Soon):** This feature will enable you to generate images from text prompts, offering a visual dimension to your creativity.
 
-**## Prerequisites**
+## Setup
 
-* Python 3.x (specify the exact version you used for development)
-* google.generativeai library (provide installation instructions)
-* google.ai.generativelanguage library (provide installation instructions)
-* dotenv library (provide installation instructions)
-* A Google API key with access to the Google AI Generative Models API (explain how to obtain one)
-
-**## Installation**
-
-1. Clone this repository:
+1. **Clone this repository:**
    ```bash
    git clone https://github.com/princexoleo/gemini-pro-api-streamlit.git
    ```
-2. Install the required libraries:
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-3. Create a `.env` file in the project root directory and add your Google API key:
-   ```
-   GOOGLE_API_KEY=YOUR_API_KEY
-   ```
+4. **Set up a .env file:**
+   - Create a file named `.env` in the project's root directory.
+   - Add the following line, replacing `YOUR_API_KEY` with your actual Google API key:
+     ```
+     GOOGLE_API_KEY=YOUR_API_KEY
+     ```
+   - Ensure you have enabled the Gemini API in your Google Cloud project.
 
-**## Usage**
+## Running the App
 
-1. Load and configure the API:
-   ```python
-   from main import load_and_configure_api
-   load_and_configure_api()
+1. **Navigate to the project directory:**
+   ```bash
+   cd gemini-text-generation-demo  # Or your chosen project name
    ```
-2. Choose a model:
-   ```python
-   model = "gemini-pro"  # or "gemini-pro-vision"
-   ```
-3. Generate text:
-   ```python
-   from main import get_response
-   prompt = "Write a poem about a beautiful sunset."
-   response = get_response(prompt, model=model)
-   print(response)
+2. **Run the Streamlit app:**
+   ```bash
+   streamlit run main.py
    ```
 
-**## Additional Information**
+## Using the App
 
-* **Supported models:** gemini-pro, gemini-pro-vision
-* **Safety settings:** The `get_response` function currently uses `safety_settings={'HARASSMENT':'block_none'}`. Refer to the Google AI Generative Models API documentation for more information on safety settings.
+1. **Access the app in your web browser.** The link will be provided in the terminal after starting the app.
+2. **Choose a task:**
+   - Select "Generate Text" from the sidebar to generate text.
+   - Select "Generate Image" to experiment with image generation (coming soon).
+3. **Enter a prompt:**
+   - For text generation, type your prompt into the text box.
+   - For image generation (once available), provide a descriptive prompt for the desired image.
+4. **Click the "Generate" button:**
+   - The app will initiate the text or image generation process (depending on the chosen task).
+5. **View the generated output:**
+   - The generated text or image will be displayed in the app.
+6. **Interact with the output:**
+   - For text, you can copy it to your clipboard or explore its formatting (if applicable).
+   - For images (once available), you'll be able to view and potentially save them.
 
-**## Contributing**
+## Additional Information
 
-* Fork this repository
-* Create a branch for your changes
-* Make your changes and commit them
-* Push your changes to your fork
-* Create a pull request
-
-**## License**
-
-(Specify the license under which your project is available)
-
-**## Contact**
-
-(Provide your contact information for any questions or feedback)
-
-**## Acknowledgements**
-
-* Google AI Generative Models API
-* google.generativeai library
-* google.ai.generativelanguage library
-* dotenv library
-
-**## Additional Notes**
-
-* If using Streamlit, uncomment the `import streamlit as st` line and integrate Streamlit components as needed.
-* Consider adding a usage example or a demo to illustrate the project's capabilities.
+- Consult the Google AI documentation for more details on Gemini API: [https://cloud.google.com/natural-language](https://cloud.google.com/natural-language)
