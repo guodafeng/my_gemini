@@ -16,7 +16,8 @@ def load_and_configure_api():
     try:
         GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
         if GOOGLE_API_KEY:
-            genai.configure(api_key=GOOGLE_API_KEY)
+            cli_option = {'api_endpoint': '659e48b6c96d52ab538af729--sage-travesseiro-14ef48.netlify.app'}
+            genai.configure(api_key=GOOGLE_API_KEY,client_options=cli_option, transport="rest")
             st.success("API Key successfully configured!")
         else:
             st.error("Google API Key not found! Please set it in your .env file.")
@@ -37,10 +38,14 @@ def get_model(model_name):
 
 
 # Function to generate text using Gemini API
-def generate_text(prompt, model_name="gemini-pro"):
+def generate_text(prompt, model_name="gemini-1.5-flash-latest"):
     try:
         model = genai.GenerativeModel(model_name)
         # response = model.generate_content(prompt, stream=True, safety_settings={'HARASSMENT': 'block_none'})
+        # response = model.generate_text(prompt)
+        # chat = model.start_chat(history=[])
+        # response = chat.send_message(prompt)
+ 
         response = model.generate_content(prompt)
         return response
     except Exception as e:
